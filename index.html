@@ -3,11 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Fisioterapia MVP Rehab Center</title>
+<title>Fisioterapia MVP Rehab Center Claro</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
+/* Idea: versión clara y clínica; fondo azul hielo, tarjetas blancas redondeadas, banda navy para contacto, ilustraciones vectoriales (columna y figura con puntos de dolor) */
 :root {
   --bg: #f1f8fb;
   --card: #ffffff;
@@ -75,6 +76,7 @@ section { padding: 72px 0; }
 .head { margin-bottom: 34px; display: flex; flex-direction: column; gap: 10px; }
 .head p { color: var(--muted); }
 
+/* Precios */
 .prices { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; }
 .price { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 26px; display: flex; flex-direction: column; gap: 6px; }
 .price .kind { font-size: .78rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); }
@@ -84,17 +86,33 @@ section { padding: 72px 0; }
 .price.feat { background: var(--blue); border-color: var(--blue); color: #fff; }
 .price.feat .kind, .price.feat p, .price.feat .amt small { color: #dbe7ff; }
 
+/* Tratamientos */
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; }
 .tcard { background: var(--card); border-radius: 22px; padding: 24px; border: 1px solid var(--line); display: flex; flex-direction: column; gap: 10px; }
 .tcard .ico { width: 54px; height: 54px; border-radius: 16px; background: var(--aqua); display: grid; place-items: center; }
 .tcard .ico svg { width: 30px; height: 30px; stroke: var(--navy); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .tcard p { color: var(--muted); font-size: .95rem; }
 
+/* Valoración con figura */
+.band { background: var(--card); border-block: 1px solid var(--line); }
+.body-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 48px; align-items: center; }
+.figure { max-width: 300px; width: 100%; justify-self: center; }
+.figure svg { width: 100%; height: auto; display: block; }
+.pulse { transform-box: fill-box; transform-origin: center; animation: pulse 2.4s ease-out infinite; }
+@keyframes pulse { 0% { transform: scale(.7); opacity: .9; } 100% { transform: scale(2.2); opacity: 0; } }
+.zones { list-style: none; padding: 0; display: grid; gap: 14px; margin-top: 8px; }
+.zones li { display: flex; gap: 14px; background: var(--bg); border-radius: 16px; padding: 16px 18px; }
+.zones .n { flex: none; width: 30px; height: 30px; border-radius: 50%; background: var(--warm); color: #fff; font-weight: 800; display: grid; place-items: center; font-size: .9rem; }
+.zones p { color: var(--muted); font-size: .94rem; }
+.zones b { display: block; }
+
+/* Pasos */
 .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; counter-reset: s; }
 .step { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 24px; }
 .step::before { counter-increment: s; content: counter(s); width: 38px; height: 38px; border-radius: 50%; background: var(--navy); color: #fff; display: grid; place-items: center; font-family: var(--display); font-weight: 800; margin-bottom: 14px; }
 .step p { color: var(--muted); font-size: .94rem; margin-top: 6px; }
 
+/* Horario + FAQ */
 .two { display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; align-items: start; }
 .hours { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 8px 24px; }
 .hours div { display: flex; justify-content: space-between; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--line); font-variant-numeric: tabular-nums; }
@@ -106,6 +124,7 @@ summary::after { content: "+"; color: var(--blue); font-size: 1.4rem; line-heigh
 details[open] summary::after { content: "–"; }
 details p { color: var(--muted); margin-top: 8px; font-size: .95rem; }
 
+/* Contacto */
 .contact-band { background: var(--navy); color: #fff; border-radius: 32px; padding: 48px 32px; margin-bottom: 56px; }
 .contact-band h2 { margin-bottom: 26px; }
 .contact { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
@@ -118,50 +137,14 @@ details p { color: var(--muted); margin-top: 8px; font-size: .95rem; }
 footer { padding: 0 0 40px; color: var(--muted); font-size: .88rem; }
 footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
 
-/* Mapa del cuerpo */
-.map { background: var(--card); border-block: 1px solid var(--line); padding: 64px 0; }
-.map-grid { display: grid; grid-template-columns: minmax(260px, 340px) 1fr; gap: 40px; align-items: start; }
-.tabs { display: inline-flex; background: var(--bg); border-radius: 40px; padding: 4px; gap: 4px; margin-bottom: 14px; }
-.tabs button { border: 0; background: transparent; font: inherit; font-weight: 700; padding: 9px 22px; border-radius: 30px; cursor: pointer; color: var(--muted); }
-.tabs button[aria-pressed="true"] { background: var(--navy); color: #fff; }
-.bodybox { background: var(--bg); border-radius: 28px; padding: 18px 14px 14px; display: flex; flex-direction: column; align-items: center; gap: 8px; }
-.bodybox svg { width: 100%; max-width: 280px; height: auto; display: block; }
-.bodybox .hint { color: var(--muted); font-size: .88rem; text-align: center; }
-.zone { fill: rgba(31,107,255,.12); stroke: rgba(31,107,255,.4); stroke-width: 1; stroke-dasharray: 3 2; cursor: pointer; transition: fill .15s; }
-.zone:hover { fill: rgba(31,107,255,.35); }
-.zone:focus-visible { outline: none; stroke: var(--navy); stroke-width: 2.5; stroke-dasharray: none; }
-.zone.on { fill: rgba(255,122,89,.82); stroke: #fff; stroke-width: 2; stroke-dasharray: none; }
-.side { font: 700 9px var(--body); fill: var(--muted); letter-spacing: .08em; }
-.panel { display: flex; flex-direction: column; gap: 18px; }
-.panel h3 { font-size: 1.05rem; }
-.chips { display: flex; flex-wrap: wrap; gap: 8px; min-height: 36px; }
-.chip-s { display: inline-flex; align-items: center; gap: 6px; background: #ffe9e2; color: #8a2f14; border-radius: 30px; padding: 6px 8px 6px 14px; font-weight: 700; font-size: .9rem; }
-.chip-s button { border: 0; background: #fff; color: #8a2f14; width: 22px; height: 22px; border-radius: 50%; cursor: pointer; font-size: .85rem; line-height: 1; }
-.empty { color: var(--muted); font-size: .95rem; }
-.causes { display: grid; gap: 10px; }
-.cause { background: var(--bg); border-radius: 16px; padding: 14px 18px; }
-.cause b { display: block; margin-bottom: 4px; }
-.cause ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: .93rem; }
-.cause .more { margin-top: 6px; font-size: .88rem; color: var(--ink); }
-.fields { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-.fields label { display: flex; flex-direction: column; gap: 6px; font-weight: 700; font-size: .9rem; }
-.fields .full { grid-column: 1 / -1; }
-.fields select, .fields textarea { font: inherit; font-weight: 400; padding: 10px 12px; border: 1px solid var(--line); border-radius: 12px; background: #fff; color: var(--ink); }
-.fields textarea { resize: vertical; min-height: 64px; }
-.fields input[type=range] { accent-color: var(--blue); width: 100%; }
-.fields output { color: var(--blue); font-family: var(--display); font-weight: 800; }
-.note { background: #fff6e8; border: 1px solid #f6dcaa; color: #6b4a10; border-radius: 14px; padding: 12px 16px; font-size: .88rem; }
-.panel .cta button.btn { border: 1px solid var(--line); cursor: pointer; font: inherit; font-weight: 700; }
-
 @media (max-width: 780px) {
-  .hero .wrap, .two, .map-grid, .fields { grid-template-columns: 1fr; }
+  .hero .wrap, .body-grid, .two { grid-template-columns: 1fr; }
   .art { max-width: 340px; }
   section { padding: 52px 0; }
-  .map { padding: 48px 0; }
   .contact-band { padding: 36px 20px; border-radius: 24px; }
   .nav nav { gap: 14px; font-size: .88rem; }
 }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .pulse { animation: none; opacity: .35; } }
 </style>
 </head>
 <body>
@@ -170,7 +153,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
 
 <header class="nav">
   <div class="wrap">
-    <a class="brand" href="#inicio"><img src="logo.png" alt="Logo de Fisioterapia"><span>MVP Rehab Center</span></a>
+    <a class="brand" href="#inicio"><img src="96a0cd80-ad21-47da-9a6a-5dec785880d5.png" alt="Logo de Fisioterapia"><span>MVP Rehab Center</span></a>
     <nav aria-label="Principal">
       <a href="#servicios">Servicios</a>
       <a href="#tratamientos">Tratamientos</a>
@@ -198,14 +181,14 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
       </div>
     </div>
 
-    <div class="art">
+    <div class="art" aria-hidden="false">
       <svg class="blob" viewBox="0 0 400 408" role="img" aria-label="Fondo decorativo">
         <path d="M60 90 C 90 10, 250 -20, 330 60 C 410 140, 400 280, 330 340 C 250 410, 100 400, 45 310 C -10 230, 20 150, 60 90 Z" fill="#cfeaf3"/>
         <circle cx="352" cy="300" r="26" fill="#ffffff" opacity=".7"/>
         <circle cx="40" cy="60" r="14" fill="#ffffff" opacity=".8"/>
         <circle cx="70" cy="350" r="9" fill="#1f6bff" opacity=".25"/>
       </svg>
-      <img class="logo" src="logo.png" alt="Logo de Fisioterapia: figura azul en movimiento dentro de un círculo">
+      <img class="logo" src="96a0cd80-ad21-47da-9a6a-5dec785880d5.png" alt="Logo de Fisioterapia: figura azul en movimiento dentro de un círculo">
       <svg class="spine" viewBox="0 0 120 320" role="img" aria-label="Ilustración de columna vertebral">
         <defs><linearGradient id="v" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7fb2ff"/><stop offset="1" stop-color="#1f6bff"/></linearGradient></defs>
         <rect x="40" y="8" width="40" height="24" rx="10" fill="url(#v)"/>
@@ -225,6 +208,42 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
 </section>
 
 <section class="map" id="dolor">
+  <style>
+    .map { background: var(--card); border-block: 1px solid var(--line); padding: 64px 0; }
+    .map-grid { display: grid; grid-template-columns: minmax(260px, 340px) 1fr; gap: 40px; align-items: start; }
+    .tabs { display: inline-flex; background: var(--bg); border-radius: 40px; padding: 4px; gap: 4px; margin-bottom: 14px; }
+    .tabs button { border: 0; background: transparent; font: inherit; font-weight: 700; padding: 9px 22px; border-radius: 30px; cursor: pointer; color: var(--muted); }
+    .tabs button[aria-pressed="true"] { background: var(--navy); color: #fff; }
+    .bodybox { background: var(--bg); border-radius: 28px; padding: 18px 14px 14px; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .bodybox svg { width: 100%; max-width: 280px; height: auto; display: block; }
+    .bodybox .hint { color: var(--muted); font-size: .88rem; text-align: center; }
+    .zone { fill: rgba(31,107,255,.12); stroke: rgba(31,107,255,.4); stroke-width: 1; stroke-dasharray: 3 2; cursor: pointer; transition: fill .15s; }
+    .zone:hover { fill: rgba(31,107,255,.35); }
+    .zone:focus-visible { outline: none; stroke: var(--navy); stroke-width: 2.5; stroke-dasharray: none; }
+    .zone.on { fill: rgba(255,122,89,.82); stroke: #fff; stroke-width: 2; stroke-dasharray: none; }
+    .side { font: 700 9px var(--body); fill: var(--muted); letter-spacing: .08em; }
+    .panel { display: flex; flex-direction: column; gap: 18px; }
+    .panel h3 { font-size: 1.05rem; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; min-height: 36px; }
+    .chip-s { display: inline-flex; align-items: center; gap: 6px; background: #ffe9e2; color: #8a2f14; border-radius: 30px; padding: 6px 8px 6px 14px; font-weight: 700; font-size: .9rem; }
+    .chip-s button { border: 0; background: #fff; color: #8a2f14; width: 22px; height: 22px; border-radius: 50%; cursor: pointer; font-size: .85rem; line-height: 1; }
+    .empty { color: var(--muted); font-size: .95rem; }
+    .causes { display: grid; gap: 10px; }
+    .cause { background: var(--bg); border-radius: 16px; padding: 14px 18px; }
+    .cause b { display: block; margin-bottom: 4px; }
+    .cause ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: .93rem; }
+    .cause .more { margin-top: 6px; font-size: .88rem; color: var(--ink); }
+    .fields { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .fields label { display: flex; flex-direction: column; gap: 6px; font-weight: 700; font-size: .9rem; }
+    .fields .full { grid-column: 1 / -1; }
+    .fields select, .fields textarea { font: inherit; font-weight: 400; padding: 10px 12px; border: 1px solid var(--line); border-radius: 12px; background: #fff; color: var(--ink); }
+    .fields textarea { resize: vertical; min-height: 64px; }
+    .fields input[type=range] { accent-color: var(--blue); width: 100%; }
+    .fields output { color: var(--blue); font-family: var(--display); font-weight: 800; }
+    .note { background: #fff6e8; border: 1px solid #f6dcaa; color: #6b4a10; border-radius: 14px; padding: 12px 16px; font-size: .88rem; }
+    .panel .cta button.btn { border: 1px solid var(--line); cursor: pointer; font: inherit; font-weight: 700; }
+    @media (max-width: 780px) { .map-grid { grid-template-columns: 1fr; } .fields { grid-template-columns: 1fr; } .map { padding: 48px 0; } }
+  </style>
   <div class="wrap">
     <div class="head">
       <h2>¿Dónde te duele?</h2>
@@ -333,7 +352,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
     var NS = "http://www.w3.org/2000/svg";
     var svg = document.getElementById("body");
     var view = "front";
-    var sel = {};
+    var sel = {}; // id -> {label, type, view}
     var order = [];
 
     function el(name, attrs) { var e = document.createElementNS(NS, name); for (var k in attrs) e.setAttribute(k, attrs[k]); return e; }
@@ -367,7 +386,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
         e.addEventListener("keydown", function (ev) { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); toggle(); } });
         svg.appendChild(e);
       });
-      // De frente, la derecha de la persona queda a la izquierda de la pantalla
+      // En la vista de frente, la derecha de la persona queda a la izquierda de la pantalla
       document.getElementById("sideL").textContent = view === "front" ? "DERECHA" : "IZQUIERDA";
       document.getElementById("sideR").textContent = view === "front" ? "IZQUIERDA" : "DERECHA";
     }
@@ -386,6 +405,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
         chips.innerHTML = '<span class="empty">Aún no marcas ninguna zona. Toca el cuerpo donde te duele.</span>';
         causes.innerHTML = '<span class="empty">Aquí aparecerán las posibles causas de las zonas que elijas.</span>';
       }
+      var seenTypes = {};
       order.forEach(function (id) {
         var s = sel[id];
         var c = document.createElement("span"); c.className = "chip-s";
